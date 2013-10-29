@@ -1,5 +1,5 @@
 Given(/^I have no tasks$/) do
-  Tasks.delete_all
+  Task.delete_all
 end
 
 When(/^I do to the list of tasks$/) do

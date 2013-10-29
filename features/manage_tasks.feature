@@ -3,7 +3,7 @@ Feature: Manage Tasks
     As an author
     I want to create and manage tasks
 
-    Scenario: Taks list
+    Scenario: Tasks list
         Given I have no tasks
         When I do to the list of tasks
         Then I should not see any tasks
