@@ -1,0 +1,2 @@
+class Open < State
+end
