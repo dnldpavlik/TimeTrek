@@ -2,10 +2,10 @@ Given(/^I have no tasks$/) do
   Task.delete_all
 end
 
-When(/^I do to the list of tasks$/) do
-  pending # express the regexp above with the code you wish you had
+When(/^I go to (.+)$/) do | page_name |
+  visit path_to(page_name) # express the regexp above with the code you wish you had
 end
 
 Then(/^I should not see any tasks$/) do
-  pending # express the regexp above with the code you wish you had
+  Task.count.should == 0
 end

@@ -33,10 +33,8 @@ group :doc do
 end
 
 group :test do
-    gem "rspec"
-    gem "rspec-rails"
-    gem "webrat"
-    gem "cucumber"
+    gem 'rspec'
+    gem 'webrat'
     gem 'cucumber-rails', require: false
     gem 'database_cleaner'
 end

@@ -5,5 +5,5 @@ Feature: Manage Tasks
 
     Scenario: Tasks list
         Given I have no tasks
-        When I do to the list of tasks
+        When I go to the list of tasks
         Then I should not see any tasks
