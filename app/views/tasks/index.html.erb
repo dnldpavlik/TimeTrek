@@ -1,1 +1,12 @@
 <h1>List of tasks</h1>
+
+<%= form_tag do %>
+    <%= text_field_tag(:description) %>
+    <%= submit_tag("Add") %>
+<% end %>
+
+<ul>
+<% @tasks.each do |task| %>
+    <li><%= task.description %></li>
+<% end %>
+</ul>
