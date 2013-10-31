@@ -18,6 +18,16 @@ When(/^I press "(.*?)"$/) do |button|
   click_button button
 end
 
-Then(/^I should see "(.*?)"$/) do |task|
+Then(/^I should see "(.*?)" as "(.*?)"$/) do |task, state|
   page.should have_content task
+end
+
+When(/^I hit enter while in "(.*?)"$/) do |field|
+  keypress_on find("#" + field), :enter
+end
+
+def keypress_on(element, key, charCode = 0)
+    keyCode = case key when :enter then 13 else key.to_i end
+
+    element.base.invoke('keypress', false, false, false, false, keyCode, charCode);
 end
