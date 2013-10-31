@@ -11,3 +11,10 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+    background-color: tan;
+    background-image: url("/assets/mono-lake-sunset-long-exposure-X2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}

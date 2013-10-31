@@ -5,7 +5,7 @@
     <%= submit_tag("Add") %>
 <% end %>
 
-<ul>
+<ul class="open">
 <% @tasks.each do |task| %>
     <li><%= task.description %></li>
 <% end %>
