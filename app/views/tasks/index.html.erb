@@ -1,7 +1,9 @@
 <h1>List of tasks</h1>
 
 <%= form_tag do %>
-    <%= text_field_tag(:description) %>
+    <div id="taskEntry">
+        <%= text_field_tag(:description) %>
+    </div>
     <%= submit_tag("Add") %>
 <% end %>
 
