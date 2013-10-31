@@ -3,4 +3,5 @@ rvm:
     - "2.0.0"
 script:
     - RAILS_ENV=test bundle exec rake db:migrate --trace
+    - CODECLIMATE_REPO_TOKEN=e21aa208cbe7894d3253537ffa2ed204ec21b9a1742d581cbd3e8fd12b33d3e9 bundle exec rake
     - bundle exec cucumber

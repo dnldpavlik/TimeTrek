@@ -33,6 +33,7 @@ group :doc do
 end
 
 group :test do
+    gem "codeclimate-test-reporter", group: :test, require: nil
     gem 'rspec'
     gem 'webrat'
     gem 'cucumber-rails', require: false
