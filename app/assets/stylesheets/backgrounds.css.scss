@@ -1,0 +1,15 @@
+.background-spacemen {
+    background-image: url("/assets/backgrounds/spacemen.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.background-wood {
+    background-image: url("/assets/backgrounds/body_bg_tile.jpg");
+
+    body {
+        background-image: url("/assets/backgrounds/top_bg_tile.png");
+        background-repeat: repeat-x;
+    }
+}
+

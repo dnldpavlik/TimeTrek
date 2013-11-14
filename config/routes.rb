@@ -1,5 +1,9 @@
 TimeTrek::Application.routes.draw do
-    resources :tasks
+    resources :tasks do
+        collection do
+            patch :complete
+        end
+    end
     
     root 'tasks#index'
   # The priority is based upon order of creation: first created -> highest priority.
