@@ -11,7 +11,7 @@ class TasksController < ApplicationController
     end
 
     def create
-        Task.create(description: create_task_params, status: "Open")
+        Task.create!(description: create_task_params, status: "Open", flagged: false)
         redirect_to_task_list
     end
 

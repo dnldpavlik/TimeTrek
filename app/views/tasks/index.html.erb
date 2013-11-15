@@ -22,7 +22,7 @@
                     end    
                 %>
                 <span><%= task.description %></span> 
-                <!-- <%= link_to 'X', task_path(:task_id => task.id, :id => task.id), :method => :delete %> -->
+                <%= link_to image_tag('/assets/trashcan.png'), task_path(:task_id => task.id, :id => task.id), :method => :delete, :class => "delete" %>
             </div>
         </li>
     <% end %>
