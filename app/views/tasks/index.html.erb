@@ -6,19 +6,47 @@
 <% end %>
 
 <div class="task_list">
-    <%= form_tag complete_tasks_path, :method => :patch do %>
-        <ul class="open">
-        <% @tasks.each do |task| %>
-            <% taskId = "taskId" + task.id.to_s %>
-            <li><%= check_box_tag 'task_ids[]', task.id, false, :id => taskId %> <%= label_tag taskId, task.description, :class => "input-helper input-helper--checkbox" %> <%= link_to 'X', task_path(task.id), :method => :delete %></li>
-        <% end %>
-        </ul>
-        <%= submit_tag "Update" %>
+    <ul class="open">
+    <% @tasks.each do |task| %>
+        <li class="task">
+            <div>
+                <%= link_to image_tag('/assets/boxes_normal.png'), 
+                    task_complete_path(task.id),
+                    :method => :patch, 
+                    :class => "checkbox" %>
+                <%= 
+                    if task.flagged 
+                        link_to image_tag('/assets/flag.png'), task_unflag_path(task.id), :method => :patch, :class => "flag" 
+                    else
+                        link_to image_tag('/assets/flag not stared.png'), task_flag_path(task.id), :method => :patch, :class => "flag" 
+                    end    
+                %>
+                <span><%= task.description %></span> 
+                <!-- <%= link_to 'X', task_path(:task_id => task.id, :id => task.id), :method => :delete %> -->
+            </div>
+        </li>
     <% end %>
+    </ul>
 
-    <ul class="completed hidden">
+    <ul class="completed">
         <% @completed_taks.each do |task| %>
-            <li><%= link_to 'X', task_path(task.id), :method => :delete  %><%= task.description %></li>
+            <li class="task">
+                <div>
+                    <%= link_to image_tag('/assets/boxes_checked.png'), 
+                        task_uncomplete_path(task.id),
+                        :method => :patch, 
+                        :class => "checkbox" %>
+                    <%= 
+                        if task.flagged
+                            image_tag '/assets/flag.png', :class => "flag"
+                        else
+                            image_tag '/assets/flag not stared.png', :class => "flag"
+                        end
+                    %>
+                    <span><%= task.description %></span> 
+                    <!-- <%= link_to 'X', task_path(task.id), :method => :delete %> -->
+                </div>
+            </li>
         <% end %>
     </ul>
 </div>

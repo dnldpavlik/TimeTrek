@@ -1,8 +1,9 @@
 TimeTrek::Application.routes.draw do
-    resources :tasks do
-        collection do
-            patch :complete
-        end
+    resources :tasks  do
+        patch 'complete'    => 'tasks#complete'
+        patch 'uncomplete'  => 'tasks#uncomplete'
+        patch 'flag'        => 'tasks#flag'
+        patch 'unflag'      => 'tasks#unflag'
     end
     
     root 'tasks#index'
