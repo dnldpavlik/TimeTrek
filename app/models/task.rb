@@ -18,9 +18,7 @@ class Task < ActiveRecord::Base
     end
 
     def complete
-        puts self.status
         self.status = TaskStatus.completed
-        puts self.status
         self.unflag
     end
 
