@@ -3,15 +3,12 @@ class TasksController < ApplicationController
     after_action :save_task, only: [:complete, :uncomplete, :flag, :unflag]
 
     def index
-        flagged_tasks = Task.where(:status => "Open", :flagged => true).order(:description)
-        unflagd_tasks = Task.where(:status => "Open", :flagged => false).order(:description)
-        @tasks = flagged_tasks + unflagd_tasks
-        
-        @completed_taks = Task.where(status: "Completed")
+        @tasks = Task.open_tasks
+        @completed_taks = Task.completed_tasks
     end
 
     def create
-        Task.create!(description: create_task_params, status: "Open", flagged: false)
+        Task.create!(description: create_task_params)
         redirect_to_task_list
     end
 
@@ -21,23 +18,22 @@ class TasksController < ApplicationController
     end
 
     def complete
-        @task.status = "Completed"
-        @task.flagged = false
+        @task.complete
         redirect_to_task_list
     end
 
     def uncomplete
-        @task.status = "Open"
+        @task.uncomplete
         redirect_to_task_list
     end
 
     def flag 
-        @task.flagged = true
+        @task.flag
         redirect_to_task_list
     end
     
     def unflag
-        @task.flagged = false
+        @task.unflag
         redirect_to_task_list
     end
 

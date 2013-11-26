@@ -11,7 +11,7 @@ Feature: Manage Tasks
     Scenario: Create a task
         Given I have no tasks
         When I go to the list of tasks
-        And I fill in "description" with "My 1st Task"
+        And I fill in "description" with "A task that is being entered"
         #And I hit enter while in "description"
         And I press "Add"
-        Then I should see "My 1st Task" as "open"
+        Then I should see "A task that is being entered" as "open"

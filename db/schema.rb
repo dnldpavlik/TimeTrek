@@ -1,3 +1,5 @@
+require 'taskstatus'
+
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -14,11 +16,11 @@
 ActiveRecord::Schema.define(version: 20131114215225) do
 
   create_table "tasks", force: true do |t|
-    t.string   "description"
-    t.string   "status"
+    t.string   "description", null: false
+    t.string   "status",      default: TaskStatus.open, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "flagged"
+    t.boolean  "flagged",     default: false, null: false
   end
 
 end
