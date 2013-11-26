@@ -17,8 +17,5 @@
 
 *.swp
 
-config/initializers/session_store.rb
-
 resources/general layout
-
 resources/task icon.psd
