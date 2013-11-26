@@ -1,4 +1,4 @@
-require 'taskstatus'
+require_relative 'taskstatus'
 
 class Task < ActiveRecord::Base
     def self.open_flagged_tasks 
