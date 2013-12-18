@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    before_action :find_task, except: [:index, :create]
+    before_action :find_task, except: [:index, :create, :show]
     after_action :save_task, only: [:complete, :uncomplete, :flag, :unflag]
 
     def index
@@ -10,6 +10,14 @@ class TasksController < ApplicationController
     def create
         Task.create!(description: create_task_params)
         redirect_to_task_list
+    end
+
+    def show
+        @task = Task.find(params[:id])
+
+        respond_to do |format|
+            format.json { render :json => @task }
+        end
     end
 
     def destroy

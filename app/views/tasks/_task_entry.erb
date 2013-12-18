@@ -1,0 +1,10 @@
+<%= form_tag :tasks, url: tasks_path do %>
+        <!-- <%= text_field_tag(:description) %> -->
+    <script type="text/x-handlebars" data-template-name="_taskEntry">
+        <div id="taskEntry">
+            {{input type="text" name="description" value="" action="saveTask"}}
+        </div>
+    </script>
+    <%= submit_tag "Add", :class => "hidden" %>
+<% end %>
+

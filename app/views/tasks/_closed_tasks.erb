@@ -1,0 +1,21 @@
+<ul class="completed">
+    <% @completed_taks.each do |task| %>
+        <li class="task">
+            <div>
+                <%= link_to image_tag('/assets/boxes_checked.png'), 
+                    task_uncomplete_path(task.id),
+                    :method => :patch, 
+                    :class => "checkbox" %>
+                <%= 
+                    if task.flagged
+                        image_tag '/assets/flag.png', :class => "flag"
+                    else
+                        image_tag '/assets/flag not stared.png', :class => "flag"
+                    end
+                %>
+                <span><%= task.description %></span> 
+                <!-- <%= link_to 'X', task_path(task.id), :method => :delete %> -->
+            </div>
+        </li>
+    <% end %>
+</ul>

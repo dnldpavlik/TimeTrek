@@ -1,0 +1,21 @@
+<ul class="open">
+<% @tasks.each do |task| %>
+    <li class="task" data-task-id="<%= task.id %>">
+        <div>
+            <%= link_to image_tag('/assets/boxes_normal.png'), 
+                task_complete_path(task.id),
+                :method => :patch, 
+                :class => "checkbox" %>
+            <%= 
+                if task.flagged 
+                    link_to image_tag('/assets/flag.png'), task_unflag_path(task.id), :method => :patch, :class => "flag" 
+                else
+                    link_to image_tag('/assets/flag not stared.png'), task_flag_path(task.id), :method => :patch, :class => "flag" 
+                end    
+            %>
+        <span><%= task.description %></span> 
+            <%= link_to image_tag('/assets/trashcan.png'), task_path(:task_id => task.id, :id => task.id), :method => :delete, :class => "delete" %>
+        </div>
+    </li>
+<% end %>
+</ul>

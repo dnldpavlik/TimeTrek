@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html class="background-landscape-marvellous-butterfly">
-<head>
-  <title>TimeTrek</title>
-  <%= stylesheet_link_tag    "reset", "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<div class="content">
-<%= yield %>
-</div>
-</body>
+    <head>
+      <title>TimeTrek</title>
+      <%= stylesheet_link_tag    "reset", "application", media: "all", "data-turbolinks-track" => true %>
+      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+      <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <%= yield %>
+    </body>
 </html>

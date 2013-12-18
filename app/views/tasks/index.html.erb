@@ -1,52 +1,35 @@
-<%= form_tag :tasks, url: tasks_path do %>
-    <div id="taskEntry">
-        <%= text_field_tag(:description) %>
-    </div>
-    <%= submit_tag "Add", :class => "hidden" %>
-<% end %>
-
-<div class="task_list">
-    <ul class="open">
-    <% @tasks.each do |task| %>
-        <li class="task">
-            <div>
-                <%= link_to image_tag('/assets/boxes_normal.png'), 
-                    task_complete_path(task.id),
-                    :method => :patch, 
-                    :class => "checkbox" %>
-                <%= 
-                    if task.flagged 
-                        link_to image_tag('/assets/flag.png'), task_unflag_path(task.id), :method => :patch, :class => "flag" 
-                    else
-                        link_to image_tag('/assets/flag not stared.png'), task_flag_path(task.id), :method => :patch, :class => "flag" 
-                    end    
-                %>
-                <span><%= task.description %></span> 
-                <%= link_to image_tag('/assets/trashcan.png'), task_path(:task_id => task.id, :id => task.id), :method => :delete, :class => "delete" %>
-            </div>
-        </li>
-    <% end %>
-    </ul>
-
-    <ul class="completed">
-        <% @completed_taks.each do |task| %>
-            <li class="task">
-                <div>
-                    <%= link_to image_tag('/assets/boxes_checked.png'), 
-                        task_uncomplete_path(task.id),
-                        :method => :patch, 
-                        :class => "checkbox" %>
-                    <%= 
-                        if task.flagged
-                            image_tag '/assets/flag.png', :class => "flag"
-                        else
-                            image_tag '/assets/flag not stared.png', :class => "flag"
-                        end
-                    %>
-                    <span><%= task.description %></span> 
-                    <!-- <%= link_to 'X', task_path(task.id), :method => :delete %> -->
+<script type="text/x-handlebars">
+    <div class="content">
+        <div id="header">
+            {{partial 'taskEntry'}}
+        </div>
+        <div id="task_lists">
+            <div class="spacer"></div>
+            <%= render :partial => "open_tasks" %>
+            <%= render :partial => "closed_tasks" %>
+        </div>
+        <div id="task_details">
+            <div class="task_background">
+                <div id="task_description" ><span></span></div>
+                <div id="stats">
+                    <div id="created" class="stat">
+                        <div class="label">Created Date:</div>
+                        <div class="value"></div>
+                    </div>
+                    <div id="updated" class="stat">
+                        <div class="label">Updated Date:</div>
+                        <div class="value"></div>
+                    </div>
+                    <div id="status" class="stat">
+                        <div class="label">Status:</div>
+                        <div class="value"></div>
+                    </div>
                 </div>
-            </li>
-        <% end %>
-    </ul>
-</div>
+                <div id="resources">
+                    <textarea></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<%= render :partial => "task_entry" %>
