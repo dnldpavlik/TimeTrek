@@ -1,7 +1,6 @@
-<script type="text/x-handlebars">
     <div class="content">
         <div id="header">
-            {{partial 'taskEntry'}}
+            <%= render :partial => "task_entry" %>
         </div>
         <div id="task_lists">
             <div class="spacer"></div>
@@ -32,4 +31,3 @@
         </div>
     </div>
 </script>
-<%= render :partial => "task_entry" %>
